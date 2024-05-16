@@ -10,7 +10,7 @@ export function useMessages(
   fileName: string,
 ) {
   const { data, error, isLoading } = useSWR<APIMessage[], Error>(
-    `/api/logs/${channelId}/${attachmentId}/${fileName}`,
+    `/api/log/${channelId}/${attachmentId}/${fileName}`,
     fetcher,
   )
 
