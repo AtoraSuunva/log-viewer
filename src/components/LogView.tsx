@@ -2,6 +2,7 @@ import { MessageGroup } from '@widgetbot/message-renderer'
 import type { APIMessage } from 'discord-api-types/v10'
 import { useParams } from 'react-router-dom'
 import { useMessages } from '../hooks/useMessages'
+import WrapperRendererProvider from './WrapperRendererProvider'
 
 export default function LogView() {
   const { channelId, attachmentId, fileName } = useParams()
@@ -17,7 +18,12 @@ export default function LogView() {
   )
 
   if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
+  if (error)
+    return (
+      <div>
+        Error: [{error.status}] {error.message}
+      </div>
+    )
   if (!messages) return <div>No messages</div>
 
   const messageGroups = []
@@ -52,5 +58,11 @@ export default function LogView() {
     )
   }
 
-  return <div className="log-container">{messageGroups}</div>
+  return (
+    <>
+      <div className="log-container">
+        <WrapperRendererProvider>{messageGroups}</WrapperRendererProvider>
+      </div>
+    </>
+  )
 }

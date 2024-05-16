@@ -27,7 +27,7 @@ export async function refreshUrls<const T extends string[]>(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `BOT ${token}`,
+      Authorization: `Bot ${token}`,
     },
     body: JSON.stringify({
       attachment_urls: urls,

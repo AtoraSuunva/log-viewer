@@ -26,6 +26,7 @@
     "discord-api-types": "^0.37.83",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.13",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "swr": "^2.2.5"

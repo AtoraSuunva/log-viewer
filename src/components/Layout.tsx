@@ -1,4 +1,14 @@
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { Outlet } from 'react-router-dom'
+
+function fallbackRender({ error }: FallbackProps): React.ReactNode {
+  return (
+    <div>
+      <h2>Something went wrong.</h2>
+      <p>{error}</p>
+    </div>
+  )
+}
 
 export default function Layout() {
   return (
@@ -10,7 +20,9 @@ export default function Layout() {
         </a>
       </header>
       <main>
-        <Outlet />
+        <ErrorBoundary fallbackRender={fallbackRender}>
+          <Outlet />
+        </ErrorBoundary>
       </main>
       <footer>
         By <a href="https://atora.dev">atora.dev</a> - Source:{' '}

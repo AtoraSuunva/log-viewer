@@ -12,6 +12,79 @@
   --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* #region fonts */
+@font-face {
+  font-family: "gg sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/fonts/gg-sans-normal-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/src/fonts/gg-sans-normal-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/src/fonts/gg-sans-normal-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/src/fonts/gg-sans-normal-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/src/fonts/gg-sans-normal-800.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/src/fonts/gg-sans-italic-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/src/fonts/gg-sans-italic-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: italic;
+  font-weight: 600;
+  src: url("/src/fonts/gg-sans-italic-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/src/fonts/gg-sans-italic-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg sans";
+  font-style: italic;
+  font-weight: 800;
+  src: url("/src/fonts/gg-sans-italic-800.woff2") format("woff2");
+}
+
+/* #endregion */
+
 @media screen and (prefers-color-scheme: light) {
   :root {
     --app-background: rgb(255, 255, 255);
@@ -50,7 +123,7 @@ body {
   margin: 0;
   background-color: var(--app-background);
   font-family: var(--wb-msg-fonts-main);
-  color: var(--font-color);
+  color: var(--font-color) !important;
 }
 
 #root {
@@ -91,6 +164,9 @@ html.light header .title img {
 main {
   padding: 2em;
   flex: 1;
+}
+
+main .info-layout {
   max-width: 800px;
   margin: 0 auto;
 }
@@ -129,4 +205,8 @@ code {
 
 .wb-msg-c-message-group-wb {
   margin: 1em 0;
+}
+
+.wb-msg-c-bjtwuk {
+  --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
