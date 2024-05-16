@@ -1,0 +1,132 @@
+:root {
+  --app-background: rgb(54, 57, 63);
+  --header-background: rgb(43, 45, 49);
+  --footer-background: rgb(35, 36, 40);
+  --code-background: rgb(43, 45, 49);
+
+  --font-color: rgb(219, 222, 225);
+  --code-color: rgb(49, 51, 56);
+  --link-color: rgb(0, 168, 252);
+  --link-visited-color: rgb(0, 168, 252);
+
+  --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (prefers-color-scheme: light) {
+  :root {
+    --app-background: rgb(255, 255, 255);
+    --header-background: rgb(242, 243, 245);
+    --footer-background: rgb(235, 237, 239);
+    --code-background: rgb(242, 243, 245);
+
+    --font-color: rgb(49, 51, 56);
+    --link-color: rgb(0, 108, 231);
+    --link-visited-color: rgb(0, 108, 231);
+  }
+
+  header .title img {
+    filter: invert(0);
+  }
+}
+
+html.light {
+  --app-background: rgb(255, 255, 255);
+  --header-background: rgb(242, 243, 245);
+  --footer-background: rgb(235, 237, 239);
+  --code-background: rgb(242, 243, 245);
+
+  --font-color: rgb(49, 51, 56);
+  --link-color: rgb(0, 108, 231);
+  --link-visited-color: rgb(0, 108, 231);
+}
+
+html.under-the-sea {
+  --app-background: rgb(18, 26, 22);
+  --header-background: rgb(30, 39, 38);
+  --footer-background: rgb(16, 20, 19);
+}
+
+body {
+  margin: 0;
+  background-color: var(--app-background);
+  font-family: var(--wb-msg-fonts-main);
+  color: var(--font-color);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+header {
+  background-color: var(--header-background);
+  padding: 1em;
+}
+
+header .title {
+  display: flex;
+  align-items: center;
+}
+
+header .title h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: var(--font-color);
+}
+
+header .title img {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  filter: invert(1);
+}
+
+html.light header .title img {
+  filter: invert(0);
+}
+
+main {
+  padding: 2em;
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: var(--footer-background);
+  padding: 1em;
+  text-align: center;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited-color);
+}
+
+code {
+  background-color: var(--code-background);
+  color: var(--font-color);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 1.2em;
+}
+
+.info-layout p {
+  line-height: 1.5;
+  font-size: 1.2em;
+}
+
+.wb-msg-c-message-group-wb {
+  margin: 1em 0;
+}

@@ -1,0 +1,44 @@
+{
+  "include": ["src/**/*", "functions/SizedMap.ts"],
+  "exclude": ["**/node_modules", "**/.*/", "functions/**/*"],
+  "compilerOptions": {
+    /* Projects */
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "tsBuildInfoFile": ".tsbuildinfo",
+
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": [],
+    "jsx": "react-jsx",
+
+    /* Modules */
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+
+    /* Emit */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    // "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+
+    /* Completeness */
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "inlineSources": true,
+  }
+}
