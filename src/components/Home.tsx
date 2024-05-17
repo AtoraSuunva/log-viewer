@@ -41,7 +41,8 @@ export default function Home() {
         Discord&apos;s CDN, containing JSON arrays of Discord messages (see{' '}
         <code>discord-api-type</code>&apos;s <code>APIMessage</code>). Log
         viewer URLs are <code>/:channelId/:attachmentId/:fileName</code>{' '}
-        (matching Discord attachment URLs).
+        (matching Discord attachment URLs). Note this may change at any time,
+        without warning. Use this for your own logs at your own risk.
       </p>
     </div>
   )

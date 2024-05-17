@@ -1,6 +1,6 @@
-import { APIMessage } from 'discord-api-types/v10'
 import { Fetcher } from 'swr'
 import useSWRImmutable from 'swr/immutable'
+import { AttachmentBody } from '../types/AttachmentBody'
 
 class FetchError extends Error {
   constructor(
@@ -11,7 +11,7 @@ class FetchError extends Error {
   }
 }
 
-const fetcher: Fetcher<APIMessage[], string> = async (url) => {
+const fetcher: Fetcher<AttachmentBody, string> = async (url) => {
   const res = await fetch(url)
 
   if (!res.ok) {
@@ -40,33 +40,29 @@ export function useMessages(
   attachmentId: string,
   fileName: string,
 ) {
-  const { data, error, isLoading } = useSWRImmutable<APIMessage[], FetchError>(
-    `/api/log/${channelId}/${attachmentId}/${fileName}`,
-    fetcher,
-    {
-      onErrorRetry: (error, _, __, revalidate, { retryCount }) => {
-        if (error instanceof FetchError) {
-          switch (error.status) {
-            case 404:
-            case 403:
-              return
-          }
+  const { data, error, isLoading } = useSWRImmutable<
+    AttachmentBody,
+    FetchError
+  >(`/api/log/${channelId}/${attachmentId}/${fileName}`, fetcher, {
+    onErrorRetry: (error, _, __, revalidate, { retryCount }) => {
+      if (error instanceof FetchError) {
+        switch (error.status) {
+          case 404:
+          case 403:
+            return
         }
+      }
 
-        if (retryCount >= 3) {
-          return
-        }
+      if (retryCount >= 3) {
+        return
+      }
 
-        setTimeout(
-          () => void revalidate({ retryCount }),
-          3 ** retryCount * 1000,
-        )
-      },
+      setTimeout(() => void revalidate({ retryCount }), 3 ** retryCount * 1000)
     },
-  )
+  })
 
   return {
-    messages: data,
+    messages: data?.data.messages,
     error,
     isLoading,
   }

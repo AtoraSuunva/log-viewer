@@ -24,7 +24,7 @@ export default function LogView() {
         Error: [{error.status}] {error.message}
       </div>
     )
-  if (!messages) return <div>No messages</div>
+  if (!messages || messages.length === 0) return <div>No messages</div>
 
   const messageGroups = []
   let currentMessages: APIMessage[] = []
