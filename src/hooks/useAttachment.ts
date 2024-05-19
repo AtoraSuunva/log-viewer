@@ -1,4 +1,4 @@
-import { Fetcher } from 'swr'
+import { Fetcher, SWRResponse } from 'swr'
 import useSWRImmutable from 'swr/immutable'
 import { AttachmentBody } from '../types/AttachmentBody'
 
@@ -35,35 +35,33 @@ const fetcher: Fetcher<AttachmentBody, string> = async (url) => {
   return res.json()
 }
 
-export function useMessages(
+export function useAttachment(
   channelId: string,
   attachmentId: string,
   fileName: string,
-) {
-  const { data, error, isLoading } = useSWRImmutable<
-    AttachmentBody,
-    FetchError
-  >(`/api/log/${channelId}/${attachmentId}/${fileName}`, fetcher, {
-    onErrorRetry: (error, _, __, revalidate, { retryCount }) => {
-      if (error instanceof FetchError) {
-        switch (error.status) {
-          case 404:
-          case 403:
-            return
+): SWRResponse<AttachmentBody, FetchError> {
+  return useSWRImmutable<AttachmentBody, FetchError>(
+    `http://localhost:8080/api/log/${channelId}/${attachmentId}/${fileName}`,
+    fetcher,
+    {
+      onErrorRetry: (error, _, __, revalidate, { retryCount }) => {
+        if (error instanceof FetchError) {
+          switch (error.status) {
+            case 404:
+            case 403:
+              return
+          }
         }
-      }
 
-      if (retryCount >= 3) {
-        return
-      }
+        if (retryCount >= 3) {
+          return
+        }
 
-      setTimeout(() => void revalidate({ retryCount }), 3 ** retryCount * 1000)
+        setTimeout(
+          () => void revalidate({ retryCount }),
+          3 ** retryCount * 1000,
+        )
+      },
     },
-  })
-
-  return {
-    messages: data?.data.messages,
-    error,
-    isLoading,
-  }
+  )
 }

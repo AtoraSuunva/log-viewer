@@ -12,8 +12,8 @@ importers:
         specifier: ^2.3.1
         version: 2.3.1(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       discord-api-types:
-        specifier: ^0.37.83
-        version: 0.37.83
+        specifier: ^0.37.84
+        version: 0.37.84
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -28,7 +28,7 @@ importers:
         version: 6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-scripts:
         specifier: 5.0.1
-        version: 5.0.1(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/babel__core@7.20.5)(esbuild@0.17.19)(eslint@8.57.0)(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5)
+        version: 5.0.1(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/babel__core@7.20.5)(esbuild@0.17.19)(eslint@8.57.0)(react@18.3.1)(type-fest@4.18.2)(typescript@5.4.5)
       swr:
         specifier: ^2.2.5
         version: 2.2.5(react@18.3.1)
@@ -64,8 +64,8 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
       wrangler:
-        specifier: ^3.56.0
-        version: 3.56.0(@cloudflare/workers-types@4.20240512.0)
+        specifier: ^3.57.0
+        version: 3.57.0(@cloudflare/workers-types@4.20240512.0)
 
 packages:
 
@@ -2537,8 +2537,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  discord-api-types@0.37.83:
-    resolution: {integrity: sha512-urGGYeWtWNYMKnYlZnOnDHm8fVRffQs3U0SpE8RHeiuLKb/u92APS8HoQnPTFbnXmY1vVnXjXO4dOxcAn3J+DA==}
+  discord-api-types@0.37.84:
+    resolution: {integrity: sha512-NngmTBW8vermlbO0qNtaS7SHCWB/R96ICqflTwM/cV7zsxyQGd38E2bBlwaxLbXgb2YTF3+Yx6+qGs/3sXedCw==}
 
   dlv@1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
@@ -5586,6 +5586,10 @@ packages:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
+  type-fest@4.18.2:
+    resolution: {integrity: sha512-+suCYpfJLAe4OXS6+PPXjW3urOS4IoP9waSiLuXfLgqZODKw/aWwASvzqE886wA0kQgGy0mIWyhd87VpqIy6Xg==}
+    engines: {node: '>=16'}
+
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -5904,8 +5908,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.56.0:
-    resolution: {integrity: sha512-YEUscEmg6F7nVPoNX5uaQ/KT0ztkPLLN4XGOl9uwgLCTHsyilzeh4WvEg6lelDi60EIXhuzWLjf0jBFN4wbnZw==}
+  wrangler@3.57.0:
+    resolution: {integrity: sha512-izK3AZtlFoTq8N0EZjLOQ7hqwsjaXCc1cbNKuhsLJjDX1jB1YZBDPhIhtXL4VVzkJAcH+0Zw2gguOePFCHNaxw==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -7338,7 +7342,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@pmmmwh/react-refresh-webpack-plugin@0.5.13(react-refresh@0.11.0)(type-fest@0.21.3)(webpack-dev-server@4.15.2(webpack@5.91.0(esbuild@0.17.19)))(webpack@5.91.0(esbuild@0.17.19))':
+  '@pmmmwh/react-refresh-webpack-plugin@0.5.13(react-refresh@0.11.0)(type-fest@4.18.2)(webpack-dev-server@4.15.2(webpack@5.91.0(esbuild@0.17.19)))(webpack@5.91.0(esbuild@0.17.19))':
     dependencies:
       ansi-html-community: 0.0.8
       core-js-pure: 3.37.1
@@ -7350,7 +7354,7 @@ snapshots:
       source-map: 0.7.4
       webpack: 5.91.0(esbuild@0.17.19)
     optionalDependencies:
-      type-fest: 0.21.3
+      type-fest: 4.18.2
       webpack-dev-server: 4.15.2(webpack@5.91.0(esbuild@0.17.19))
 
   '@remix-run/router@1.16.1': {}
@@ -7906,7 +7910,7 @@ snapshots:
       '@stitches/react': 1.3.1-1(react@18.3.1)
       autobind-decorator: 2.4.0
       color: 4.2.3
-      discord-api-types: 0.37.83
+      discord-api-types: 0.37.84
       filesize: 10.1.2
       highlight.js: 11.9.0
       i18next: 23.11.4
@@ -8829,7 +8833,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  discord-api-types@0.37.83: {}
+  discord-api-types@0.37.84: {}
 
   dlv@1.1.3: {}
 
@@ -11728,10 +11732,10 @@ snapshots:
       '@remix-run/router': 1.16.1
       react: 18.3.1
 
-  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/babel__core@7.20.5)(esbuild@0.17.19)(eslint@8.57.0)(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5):
+  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/babel__core@7.20.5)(esbuild@0.17.19)(eslint@8.57.0)(react@18.3.1)(type-fest@4.18.2)(typescript@5.4.5):
     dependencies:
       '@babel/core': 7.24.5
-      '@pmmmwh/react-refresh-webpack-plugin': 0.5.13(react-refresh@0.11.0)(type-fest@0.21.3)(webpack-dev-server@4.15.2(webpack@5.91.0(esbuild@0.17.19)))(webpack@5.91.0(esbuild@0.17.19))
+      '@pmmmwh/react-refresh-webpack-plugin': 0.5.13(react-refresh@0.11.0)(type-fest@4.18.2)(webpack-dev-server@4.15.2(webpack@5.91.0(esbuild@0.17.19)))(webpack@5.91.0(esbuild@0.17.19))
       '@svgr/webpack': 5.5.0
       babel-jest: 27.5.1(@babel/core@7.24.5)
       babel-loader: 8.3.0(@babel/core@7.24.5)(webpack@5.91.0(esbuild@0.17.19))
@@ -12554,6 +12558,9 @@ snapshots:
 
   type-fest@0.21.3: {}
 
+  type-fest@4.18.2:
+    optional: true
+
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -13017,7 +13024,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240512.0
       '@cloudflare/workerd-windows-64': 1.20240512.0
 
-  wrangler@3.56.0(@cloudflare/workers-types@4.20240512.0):
+  wrangler@3.57.0(@cloudflare/workers-types@4.20240512.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.2
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)

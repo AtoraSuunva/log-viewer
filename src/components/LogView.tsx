@@ -1,7 +1,8 @@
 import { MessageGroup } from '@widgetbot/message-renderer'
-import type { APIMessage } from 'discord-api-types/v10'
+import { MessageType, type APIMessage } from 'discord-api-types/v10'
 import { useParams } from 'react-router-dom'
-import { useMessages } from '../hooks/useMessages'
+import { useAttachment } from '../hooks/useAttachment'
+import { MetaInfo } from './MetaInfo'
 import WrapperRendererProvider from './WrapperRendererProvider'
 
 export default function LogView() {
@@ -11,7 +12,7 @@ export default function LogView() {
     return <div>Invalid URL</div>
   }
 
-  const { messages, error, isLoading } = useMessages(
+  const { data, error, isLoading } = useAttachment(
     channelId,
     attachmentId,
     fileName,
@@ -24,18 +25,20 @@ export default function LogView() {
         Error: [{error.status}] {error.message}
       </div>
     )
-  if (!messages || messages.length === 0) return <div>No messages</div>
+  if (!data || data.data.messages.length === 0) return <div>No messages</div>
 
   const messageGroups = []
   let currentMessages: APIMessage[] = []
   let lastUser = null
 
+  const { messages } = data.data
+
   for (const message of messages) {
-    if (lastUser !== message.author.id) {
+    if (lastUser !== message.author.id || message.type === MessageType.Reply) {
       if (currentMessages.length > 0) {
         messageGroups.push(
           <MessageGroup
-            key={currentMessages[0].id}
+            key={currentMessages[0]?.id}
             thread={false}
             messages={currentMessages}
           />,
@@ -51,7 +54,7 @@ export default function LogView() {
   if (currentMessages.length > 0) {
     messageGroups.push(
       <MessageGroup
-        key={currentMessages[0].id}
+        key={currentMessages[0]?.id}
         thread={false}
         messages={currentMessages}
       />,
@@ -60,8 +63,11 @@ export default function LogView() {
 
   return (
     <>
+      <MetaInfo context={data} />
       <div className="log-container">
-        <WrapperRendererProvider>{messageGroups}</WrapperRendererProvider>
+        <WrapperRendererProvider context={data}>
+          {messageGroups}
+        </WrapperRendererProvider>
       </div>
     </>
   )

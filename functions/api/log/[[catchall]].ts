@@ -19,8 +19,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const [channelId, attachmentId, fileName] = context.params
     .catchall as string[]
 
-  console.log(channelId, attachmentId, fileName)
-
   if (!channelId || !attachmentId || !fileName) {
     return new Response(MISSING_PATH_PARAM, {
       status: 400,

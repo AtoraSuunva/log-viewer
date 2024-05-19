@@ -1,3 +1,5 @@
-node_modules
-out
+build/
 .tsbuildinfo
+src/assets/
+assets/
+*.css

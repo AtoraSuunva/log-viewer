@@ -44,8 +44,13 @@ import {
   APIGuildMember,
   APIRole,
   APIUser,
+  GuildMemberFlags,
+  GuildSystemChannelFlags,
+  RoleFlags,
+  Snowflake,
 } from 'discord-api-types/v10'
 import SvgMiscDiscordImageFailure from '../assets/misc-discord-image-failure.svg'
+import { AttachmentBody } from '../types/AttachmentBody'
 
 const svgUrls = {
   FileAudio: SvgFileAudio,
@@ -86,28 +91,132 @@ const svgUrls = {
   MiscDiscordImageFailure: SvgMiscDiscordImageFailure,
 }
 
-function resolveRole(/* id: Snowflake */): APIRole | null {
-  return null
+function resolveRole(context: AttachmentBody, id: Snowflake): APIRole | null {
+  const role = context.data.roles?.[id]
+
+  return role === undefined
+    ? null
+    : {
+        id: role.id,
+        name: role.name,
+        color: role.color,
+        flags: 0 as RoleFlags,
+        hoist: false,
+        managed: false,
+        mentionable: false,
+        permissions: '0',
+        position: 0,
+      }
 }
 
-function resolveChannel(/* id: Snowflake */): APIChannel | null {
-  return null
+function resolveChannel(
+  context: AttachmentBody,
+  id: Snowflake,
+): APIChannel | null {
+  const c = context.data.channel
+  if (c?.id === id) {
+    return {
+      id: c.id,
+      type: c.type,
+      name: c.name,
+      position: 0,
+      guild_id: c.guild_id,
+    } as unknown as APIChannel
+  }
+
+  const channel = context.data.channels?.[id]
+
+  return channel === undefined
+    ? null
+    : ({
+        id: channel.id,
+        type: channel.type,
+        name: channel.name,
+        position: 0,
+        guild_id: channel.guild_id,
+      } as unknown as APIChannel) // dumb hack but otherwise TS complains about `type` not matching
 }
 
-function resolveMember(/* { id }: APIUser */): APIGuildMember | null {
-  return null
+function resolveMember(
+  context: AttachmentBody,
+  { id }: APIUser,
+): APIGuildMember | null {
+  const guildMember = context.data.members?.[id]
+
+  return guildMember === undefined
+    ? null
+    : {
+        roles: guildMember.roles,
+        joined_at: '1970-01-01T00:00:00.000Z',
+        deaf: false,
+        mute: false,
+        flags: 0 as GuildMemberFlags,
+        user: resolveUser(context, id) ?? {
+          id,
+          avatar: null,
+          discriminator: '0000',
+          global_name: null,
+          username: 'Unknown User',
+        },
+      }
 }
 
-function resolveGuild(): APIGuild | null {
-  return null
+function resolveGuild(context: AttachmentBody, id: Snowflake): APIGuild | null {
+  const { guild } = context.data
+
+  return !guild || guild.id !== id
+    ? null
+    : {
+        id: guild.id,
+        name: guild.name,
+        icon: guild.icon,
+
+        discovery_splash: null,
+        owner_id: '0',
+        region: '',
+        afk_channel_id: null,
+        afk_timeout: 60,
+        verification_level: 0,
+        default_message_notifications: 0,
+        explicit_content_filter: 0,
+        roles: [],
+        emojis: [],
+        features: [],
+        mfa_level: 0,
+        system_channel_id: null,
+        system_channel_flags: 0 as GuildSystemChannelFlags,
+        application_id: null,
+        rules_channel_id: null,
+        vanity_url_code: null,
+        description: null,
+        banner: null,
+        premium_tier: 0,
+        premium_subscription_count: 0,
+        preferred_locale: 'en-US',
+        public_updates_channel_id: null,
+        max_video_channel_users: 0,
+        approximate_member_count: 0,
+        nsfw_level: 0,
+        stickers: [],
+        premium_progress_bar_enabled: false,
+        hub_type: null,
+        safety_alerts_channel_id: null,
+        splash: null,
+      }
 }
 
-function resolveUser(/* userId: Snowflake */): APIUser | null {
-  return null
-}
+function resolveUser(context: AttachmentBody, id: Snowflake): APIUser | null {
+  const user = context.data.users?.[id]
 
-interface WrapperRendererProviderProps {
-  children: React.ReactNode
+  return user === undefined
+    ? null
+    : {
+        id: user.id,
+        avatar: user.avatar,
+        discriminator: user.discriminator,
+        global_name: user.global_name,
+        username: user.username,
+      }
 }
 
 function copyId(id: string, of = 'ID') {
@@ -121,7 +230,13 @@ function copyId(id: string, of = 'ID') {
     })
 }
 
+interface WrapperRendererProviderProps {
+  context: AttachmentBody
+  children: React.ReactNode
+}
+
 export default function WrapperRendererProvider({
+  context,
   children,
 }: WrapperRendererProviderProps) {
   return (
@@ -140,11 +255,11 @@ export default function WrapperRendererProvider({
           actionDescription: 'Copy Message ID',
         },
       ]}
-      resolveRole={resolveRole}
-      resolveChannel={resolveChannel}
-      resolveMember={resolveMember}
-      resolveGuild={resolveGuild}
-      resolveUser={resolveUser}
+      resolveRole={(id) => resolveRole(context, id)}
+      resolveChannel={(id) => resolveChannel(context, id)}
+      resolveMember={(id) => resolveMember(context, id)}
+      resolveGuild={(id) => resolveGuild(context, id)}
+      resolveUser={(id) => resolveUser(context, id)}
       currentUser={() => null}
       seeThreadOnClick={(_messageId, thread) => {
         copyId(thread.id, 'Thread ID')

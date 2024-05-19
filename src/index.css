@@ -17,70 +17,70 @@
   font-family: "gg sans";
   font-style: normal;
   font-weight: 400;
-  src: url("/src/fonts/gg-sans-normal-400.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-normal-400.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: normal;
   font-weight: 500;
-  src: url("/src/fonts/gg-sans-normal-500.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-normal-500.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: normal;
   font-weight: 600;
-  src: url("/src/fonts/gg-sans-normal-600.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-normal-600.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: normal;
   font-weight: 700;
-  src: url("/src/fonts/gg-sans-normal-700.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-normal-700.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: normal;
   font-weight: 800;
-  src: url("/src/fonts/gg-sans-normal-800.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-normal-800.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: italic;
   font-weight: 400;
-  src: url("/src/fonts/gg-sans-italic-400.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-italic-400.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: italic;
   font-weight: 500;
-  src: url("/src/fonts/gg-sans-italic-500.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-italic-500.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: italic;
   font-weight: 600;
-  src: url("/src/fonts/gg-sans-italic-600.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-italic-600.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: italic;
   font-weight: 700;
-  src: url("/src/fonts/gg-sans-italic-700.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-italic-700.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "gg sans";
   font-style: italic;
   font-weight: 800;
-  src: url("/src/fonts/gg-sans-italic-800.woff2") format("woff2");
+  src: url("/src/assets/fonts/gg-sans-italic-800.woff2") format("woff2");
 }
 
 /* #endregion */
@@ -115,7 +115,7 @@ html.light {
 
 html.under-the-sea {
   --app-background: rgb(18, 26, 22);
-  --header-background: rgb(30, 39, 38);
+  --header-background: rgb(31, 39, 38);
   --footer-background: rgb(16, 20, 19);
 }
 
@@ -162,13 +162,13 @@ html.light header .title img {
 }
 
 main {
-  padding: 2em;
   flex: 1;
 }
 
 main .info-layout {
   max-width: 800px;
   margin: 0 auto;
+  padding: 1em 0;
 }
 
 footer {
@@ -203,10 +203,57 @@ code {
   font-size: 1.2em;
 }
 
+.meta-info {
+  background-color: var(--footer-background);
+  padding: 1em;
+  display: flex;
+  flex: 1;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.meta-info__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.meta-info__channel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.meta-info__icon {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: var(--code-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meta-info h2 {
+  font-size: 1.2em;
+  margin: 0;
+  margin-bottom: 0.25em;
+}
+
+.log-container u {
+  text-underline-offset: 3px;
+}
+
 .wb-msg-c-message-group-wb {
   margin: 1em 0;
 }
 
 .wb-msg-c-bjtwuk {
   --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wb-msg-c-mention-wb {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
 }

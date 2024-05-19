@@ -5,6 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint src/ && prettier --check src/ && tsc --noEmit",
+    "lint:fix": "eslint src/ --fix && prettier --write src/ && tsc --noEmit",
     "eject": "react-scripts eject",
     "deploy": "pnpm run build && wrangler pages deploy ./build",
     "preview": "pnpm run build && wrangler pages dev ./build"
@@ -23,7 +25,7 @@
   },
   "dependencies": {
     "@widgetbot/message-renderer": "^2.3.1",
-    "discord-api-types": "^0.37.83",
+    "discord-api-types": "^0.37.84",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.13",
@@ -42,6 +44,6 @@
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "wrangler": "^3.56.0"
+    "wrangler": "^3.57.0"
   }
 }
