@@ -41,7 +41,7 @@ export function useAttachment(
   fileName: string,
 ): SWRResponse<AttachmentBody, FetchError> {
   return useSWRImmutable<AttachmentBody, FetchError>(
-    `http://localhost:8080/api/log/${channelId}/${attachmentId}/${fileName}`,
+    `/api/log/${channelId}/${attachmentId}/${fileName}`,
     fetcher,
     {
       onErrorRetry: (error, _, __, revalidate, { retryCount }) => {
