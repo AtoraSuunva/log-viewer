@@ -35,13 +35,16 @@ const fetcher: Fetcher<AttachmentBody, string> = async (url) => {
   return res.json()
 }
 
+const DEV_SUFFIX =
+  process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : ''
+
 export function useAttachment(
   channelId: string,
   attachmentId: string,
   fileName: string,
 ): SWRResponse<AttachmentBody, FetchError> {
   return useSWRImmutable<AttachmentBody, FetchError>(
-    `/api/log/${channelId}/${attachmentId}/${fileName}`,
+    `${DEV_SUFFIX}/api/log/${channelId}/${attachmentId}/${fileName}`,
     fetcher,
     {
       onErrorRetry: (error, _, __, revalidate, { retryCount }) => {

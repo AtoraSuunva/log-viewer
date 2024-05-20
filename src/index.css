@@ -93,8 +93,10 @@
 
 /* #endregion */
 
+/* #region theme-light */
+
 @media screen and (prefers-color-scheme: light) {
-  :root {
+  html.theme-sync {
     --app-background: rgb(255, 255, 255);
     --header-background: rgb(242, 243, 245);
     --footer-background: rgb(235, 237, 239);
@@ -105,12 +107,55 @@
     --link-visited-color: rgb(0, 108, 231);
   }
 
-  header .title img {
+  html.theme-sync header .title img {
     filter: invert(0);
   }
-}
 
-/* #region theme-light */
+  html.theme-sync .wb-msg-t-cviZnF {
+    --wb-msg-colors-primaryOpacity10: rgba(49, 51, 56, 0.1);
+    --wb-msg-colors-primaryOpacity20: rgba(49, 51, 56, 0.2);
+    --wb-msg-colors-primaryOpacity30: rgba(49, 51, 56, 0.3);
+    --wb-msg-colors-primaryOpacity50: rgba(49, 51, 56, 0.5);
+    --wb-msg-colors-primaryOpacity60: rgba(49, 51, 56, 0.6);
+    --wb-msg-colors-primaryOpacity80: rgba(49, 51, 56, 0.8);
+    --wb-msg-colors-primaryOpacity100: rgba(49, 51, 56, 1.0);
+  }
+
+  html.theme-sync .wb-msg-c-md-inline-code-wb {
+    --wb-msg-colors-primaryOpacity80: rgb(49, 51, 56);
+    --wb-msg-colors-backgroundSecondary: rgb(242, 243, 245);
+    color: var(--wb-msg-colors-primaryOpacity80);
+  }
+
+  html.theme-sync .wb-msg-c-md-code-block-wb {
+    --wb-msg-colors-backgroundSecondary: rgb(242, 243, 245);
+    --wb-msg-colors-backgroundTertiary: rgb(227, 229, 232);
+    --wb-msg-colors-interactiveNormal: rgb(49, 51, 56);
+  }
+
+  html.theme-sync .wb-msg-c-chat-tag-wb {
+    --wb-msg-colors-primaryOpacity100: rgba(255, 255, 255, 1.0);
+  }
+
+  html.theme-sync .wb-msg-c-mention-wb {
+    --wb-msg-colors-mentionForeground: rgb(88, 101, 242);
+    --wb-msg-colors-mentionBackground: rgba(88, 101, 242, 0.15);
+    --wb-msg-colors-mentionBackgroundHover: rgb(88, 101, 242);
+  }
+
+  html.theme-sync .wb-msg-c-mention-wb:hover {
+    --wb-msg-colors-mentionForeground: rgb(219, 222, 225);
+  }
+
+  html.theme-sync .wb-msg-c-embed-wb {
+    --wb-msg-colors-backgroundSecondary: rgb(242, 243, 245);
+  }
+
+  html.theme-sync .wb-msg-c-embed-description-wb,
+  html.theme-sync .wb-msg-c-embed-footer-wb {
+    --wb-msg-colors-interactiveNormal: rgb(49, 51, 56);
+  }
+}
 
 html.theme-light {
   --app-background: rgb(255, 255, 255);
@@ -121,6 +166,10 @@ html.theme-light {
   --font-color: rgb(49, 51, 56);
   --link-color: rgb(0, 108, 231);
   --link-visited-color: rgb(0, 108, 231);
+}
+
+html.theme-light header .title img {
+  filter: invert(0);
 }
 
 html.theme-light .wb-msg-t-cviZnF {
@@ -176,11 +225,15 @@ html.theme-under-the-sea {
   --footer-background: rgb(16, 20, 19);
 }
 
+* {
+  transition: all 170ms ease;
+}
+
 body {
   margin: 0;
   background-color: var(--app-background);
   font-family: var(--wb-msg-fonts-main);
-  color: var(--font-color) !important;
+  color: var(--font-color);
 }
 
 #root {
@@ -215,6 +268,7 @@ header .title img {
   vertical-align: middle;
   margin-right: 0.5em;
   filter: invert(1);
+  transition: filter 170ms ease;
 }
 
 header .theme-switch {
@@ -247,7 +301,7 @@ button {
 }
 
 header .theme-list {
-  display: none;
+  display: flex;
   position: absolute;
   top: 4em;
   right: 0.5em;
@@ -260,10 +314,13 @@ header .theme-list {
   justify-content: flex-start;
   gap: 0.5em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
 }
 
 header .theme-list.show {
-  display: flex;
+  opacity: 1;
+  pointer-events: all;
 }
 
 header .theme-list .theme-item {
@@ -278,10 +335,6 @@ header .theme-list button {
 
 button:hover {
   background-color: var(--button-background-hover);
-}
-
-html.theme-light header .title img {
-  filter: invert(0);
 }
 
 main {
