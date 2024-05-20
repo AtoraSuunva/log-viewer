@@ -1,5 +1,6 @@
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { Outlet } from 'react-router-dom'
+import { ThemeSwitcher } from './ThemeSwitcher'
 
 function fallbackRender({ error }: FallbackProps): React.ReactNode {
   return (
@@ -18,6 +19,7 @@ export default function Layout() {
           <img src="/open-book.svg" alt="Log Viewer" />
           <h1>Log Viewer</h1>
         </a>
+        <ThemeSwitcher />
       </header>
       <main>
         <ErrorBoundary fallbackRender={fallbackRender}>

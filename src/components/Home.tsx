@@ -36,13 +36,11 @@ export default function Home() {
       <p>
         If you can figure it out, I won&apos;t really stop you. I&apos;d prefer
         if you hosted your own instance of this (it&apos;s open-source and works
-        on Cloudflare pages) if you get a decent amount of traffic, before this
-        starts costing me money. It relies on attachments hosted on
-        Discord&apos;s CDN, containing JSON arrays of Discord messages (see{' '}
-        <code>discord-api-type</code>&apos;s <code>APIMessage</code>). Log
-        viewer URLs are <code>/:channelId/:attachmentId/:fileName</code>{' '}
-        (matching Discord attachment URLs). Note this may change at any time,
-        without warning. Use this for your own logs at your own risk.
+        on Cloudflare pages) if you get a decent amount of traffic before this
+        starts costing me money. The viewer or archive format <em>can</em> and{' '}
+        <em>will</em> change at any time, without warning, so don&apos;t rely on
+        this instance for critical things you aren&apos;t prepared to fix
+        yourself at any moment.
       </p>
     </div>
   )

@@ -3,6 +3,7 @@ import { ReactComponent as SvgIconTextChannel } from '../assets/icon-text-channe
 import { ReactComponent as SvgIconVoiceChannel } from '../assets/icon-voice-channel.svg'
 
 import { ChannelType } from 'discord-api-types/v10'
+import { useEffect } from 'react'
 import { AttachmentBody, MinimalChannel } from '../types/AttachmentBody'
 
 interface MetaInfoProps {
@@ -12,6 +13,10 @@ interface MetaInfoProps {
 export function MetaInfo({ context }: MetaInfoProps) {
   const { guild, channel } = context.data
 
+  useEffect(() => {
+    document.title = `Log: #${channel?.name ?? 'Unknown Channel'}`
+  }, [])
+
   return (
     <div className="meta-info">
       <div className="meta-info__guild">
@@ -20,7 +25,7 @@ export function MetaInfo({ context }: MetaInfoProps) {
           <div className="meta-info__icon">
             {guild?.icon ? (
               <img
-                src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`}
+                src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=96`}
                 alt="Guild Icon"
               />
             ) : (
