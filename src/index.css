@@ -426,6 +426,10 @@ a:visited {
   text-underline-offset: 3px;
 }
 
+.wb-msg-c-md-text-wb {
+  overflow-wrap: break-word;
+}
+
 .wb-msg-c-message-group-wb {
   margin: 1em 0;
 }
