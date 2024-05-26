@@ -34,7 +34,11 @@ export default function LogView() {
   const { messages } = data.data
 
   for (const message of messages) {
-    if (lastUser !== message.author.id || message.type === MessageType.Reply) {
+    if (
+      lastUser !== message.author.id ||
+      message.type === MessageType.Reply ||
+      message.interaction_metadata
+    ) {
       if (currentMessages.length > 0) {
         messageGroups.push(
           <MessageGroup

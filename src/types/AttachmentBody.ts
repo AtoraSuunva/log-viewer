@@ -17,7 +17,7 @@ export type MinimalChannel = Pick<APIChannel, 'id' | 'name'> & {
 }
 export type MinimalRole = Pick<
   APIRole,
-  'id' | 'name' | 'color' | 'icon' | 'unicode_emoji'
+  'id' | 'name' | 'color' | 'icon' | 'unicode_emoji' | 'position'
 >
 export type MinimalUser = Pick<
   APIUser,
