@@ -13,7 +13,9 @@
   --button-background-hover: rgb(71, 82, 196);
   --button-font-color: rgb(255, 255, 255);
 
-  --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --wb-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-code: 'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 
   --theme-dark-preview: rgb(54, 57, 63);
   --theme-light-preview: rgb(255, 255, 255);
@@ -89,6 +91,20 @@
   font-style: italic;
   font-weight: 800;
   src: url("/src/assets/fonts/gg-sans-italic-800.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "gg mono";
+  src: url("/src/assets/fonts/gg-mono.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/src/assets/fonts/source-code-pro.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
 }
 
 /* #endregion */
@@ -232,7 +248,7 @@ html.theme-under-the-sea {
 body {
   margin: 0;
   background-color: var(--app-background);
-  font-family: var(--wb-msg-fonts-main);
+  font-family: var(--font-main);
   color: var(--font-color);
 }
 
@@ -293,7 +309,7 @@ button {
   border-radius: 6px;
   padding: 0.5em;
   cursor: pointer;
-  font-family: var(--wb-msg-fonts-main);
+  font-family: var(--font-main);
   font-weight: 500;
   font-size: 0.9em;
   padding: 0.5em 0.75em;
@@ -380,24 +396,17 @@ a:visited {
 }
 
 .meta-info {
+  display: flex;
+  flex-wrap: wrap;
   background-color: var(--footer-background);
   padding: 1em;
-  display: flex;
-  flex: 1;
   gap: 2em;
-  flex-wrap: wrap;
 }
 
 .meta-info__content {
   display: flex;
   align-items: center;
   gap: 0.5em;
-}
-
-.meta-info__channel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .meta-info__icon {
@@ -408,6 +417,7 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1/1;
 }
 
 .meta-info__icon img {
@@ -417,9 +427,31 @@ a:visited {
 }
 
 .meta-info h2 {
+  display: none;
   font-size: 1.2em;
   margin: 0;
   margin-bottom: 0.25em;
+}
+
+.meta-info__id {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .meta-info {
+    gap: 1em;
+  }
+
+  .meta-info__guild,
+  .meta-info__channel {
+    display: flex;
+    align-items: center;
+  }
+
+  .meta-info h2 {
+    margin: 0;
+    margin-right: 0.5em;
+  }
 }
 
 .log-container u {
@@ -435,11 +467,26 @@ a:visited {
 }
 
 .wb-msg-c-bjtwuk {
-  --wb-msg-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-main) !important;
 }
 
 .wb-msg-c-mention-wb {
   display: inline-flex;
   align-items: center;
   vertical-align: bottom;
+}
+
+.wb-msg-c-message-accessories-wb>* {
+  max-width: 100%;
+  height: auto;
+}
+
+.wb-msg-c-md-code-block-wb {
+  font-family: var(--font-code) !important;
+}
+
+.wb-msg-c-chat-tag-wb.bot {
+  font-weight: 600;
+  height: 0.9375rem;
+  font-size: 0.8rem;
 }

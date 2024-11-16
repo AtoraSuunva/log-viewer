@@ -33,7 +33,7 @@ export function MetaInfo({ context }: MetaInfoProps) {
             )}
           </div>
           <div className="meta-info__name">
-            {guild?.name} ({guild?.id})
+            {guild?.name} <span className="meta-info__id">({guild?.id})</span>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ export function MetaInfo({ context }: MetaInfoProps) {
             {SvgIconFromChannelType(channel)}
           </div>
           <div className="meta-info__name">
-            {channel?.name ?? 'Unknown Channel'} ({channel?.id ?? '???'})
+            {channel?.name ?? 'Unknown Channel'} <span className="meta-info__id">({channel?.id ?? '???'})</span>
           </div>
         </div>
       </div>
