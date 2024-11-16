@@ -70,7 +70,6 @@ async function fetchMessages(
   const url = toAttachmentUrl(proxy, attachmentParams)
 
   if (discordCache.has(url)) {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return discordCache.get(url)!
   }
 

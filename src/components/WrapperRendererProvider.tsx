@@ -46,6 +46,7 @@ import {
   APIUser,
   GuildMemberFlags,
   GuildSystemChannelFlags,
+  Locale,
   RoleFlags,
   Snowflake,
 } from 'discord-api-types/v10'
@@ -192,7 +193,7 @@ function resolveGuild(context: AttachmentBody, id: Snowflake): APIGuild | null {
         banner: null,
         premium_tier: 0,
         premium_subscription_count: 0,
-        preferred_locale: 'en-US',
+        preferred_locale: 'en-US' as Locale,
         public_updates_channel_id: null,
         max_video_channel_users: 0,
         approximate_member_count: 0,

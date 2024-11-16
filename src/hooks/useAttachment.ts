@@ -1,6 +1,6 @@
-import { Fetcher, SWRResponse } from 'swr'
+import type { Fetcher, SWRResponse } from 'swr'
 import useSWRImmutable from 'swr/immutable'
-import { AttachmentBody } from '../types/AttachmentBody'
+import type { AttachmentBody } from '../types/AttachmentBody'
 
 class FetchError extends Error {
   constructor(

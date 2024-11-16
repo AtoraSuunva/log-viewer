@@ -39,7 +39,6 @@ export async function refreshUrls<const T extends string[]>(
     throw new Error('Failed to refresh urls')
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const data = (await response.json()) as RefreshUrlsResponse
 
   return data.refreshed_urls as RefreshResponse<T>
