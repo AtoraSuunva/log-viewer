@@ -2,6 +2,12 @@
 <html lang="en" class="theme-sync">
   <head>
     <meta charset="utf-8" />
+    <!-- We are very likely to connect to these for emojis (jsdelivr) and avatars/emotes (discordapp) -->
+    <!-- Avatars are basically guaranteed so we preconnect, emojis aren't so we only prefetch -->
+    <link rel="prefetch-dns" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.discordapp.com">
+    <!-- It would be nice to also preload fonts but the URLs have hashes in them -->
+
     <meta name="description" content="Viewer for archived Discord messages" />
     <meta name="keywords" content="log,viewer,discord" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

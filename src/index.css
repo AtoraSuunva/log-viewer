@@ -485,8 +485,8 @@ a:visited {
   font-family: var(--font-code) !important;
 }
 
-.wb-msg-c-chat-tag-wb.bot {
-  font-weight: 600;
-  height: 0.9375rem;
-  font-size: 0.8rem;
+.wb-msg-c-chat-tag-wb {
+  font-weight: 600 !important;
+  height: 0.9375rem !important;
+  font-size: 0.8rem !important;
 }

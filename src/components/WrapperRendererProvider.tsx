@@ -221,6 +221,10 @@ function resolveUser(context: AttachmentBody, id: Snowflake): APIUser | null {
 }
 
 function copyId(id: string, of = 'ID') {
+  if (!id) {
+    return
+  }
+
   navigator.clipboard
     .writeText(id)
     .then(() => {

@@ -14,8 +14,8 @@ export function MetaInfo({ context }: MetaInfoProps) {
   const { guild, channel } = context.data
 
   useEffect(() => {
-    document.title = `Log: #${channel?.name ?? 'Unknown Channel'}`
-  }, [])
+    if (channel?.name && channel.id !== '•••') document.title = `Log: #${channel.name}`
+  }, [channel])
 
   return (
     <div className="meta-info">
@@ -33,7 +33,7 @@ export function MetaInfo({ context }: MetaInfoProps) {
             )}
           </div>
           <div className="meta-info__name">
-            {guild?.name} <span className="meta-info__id">({guild?.id})</span>
+            {guild?.name} <span className="meta-info__id">({guild?.id ?? '???'})</span>
           </div>
         </div>
       </div>
