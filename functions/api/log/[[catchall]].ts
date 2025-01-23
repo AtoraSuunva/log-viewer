@@ -40,6 +40,8 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const error = err instanceof Error ? err.message : String(err)
     const status = err instanceof HttpError ? err.status : 500
 
+    console.log({ message: `Failed to fetch messages for ${[channelId, attachmentId, fileName]}`, error, status })
+
     return new Response(JSON.stringify({ error }), {
       status,
       headers,

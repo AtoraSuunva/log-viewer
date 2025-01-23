@@ -1,5 +1,5 @@
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 function fallbackRender({ error }: FallbackProps): React.ReactNode {

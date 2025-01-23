@@ -1,6 +1,6 @@
 import { MessageGroup } from '@widgetbot/message-renderer'
 import { MessageFlags, MessageType, type APIMessage } from 'discord-api-types/v10'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 import { useAttachment } from '../hooks/useAttachment'
 import { MetaInfo } from './MetaInfo'
 import WrapperRendererProvider from './WrapperRendererProvider'
