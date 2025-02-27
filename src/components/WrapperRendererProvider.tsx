@@ -203,6 +203,7 @@ function resolveGuild(context: AttachmentBody, id: Snowflake): APIGuild | null {
         hub_type: null,
         safety_alerts_channel_id: null,
         splash: null,
+        incidents_data: null,
       }
 }
 
