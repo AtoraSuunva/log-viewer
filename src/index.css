@@ -9,9 +9,13 @@
   --link-color: rgb(0, 168, 252);
   --link-visited-color: rgb(0, 168, 252);
 
-  --button-background: rgb(88, 101, 242);
-  --button-background-hover: rgb(71, 82, 196);
-  --button-font-color: rgb(255, 255, 255);
+  --button-filled-brand-background: rgb(88, 101, 242);
+  --button-filled-brand-background-hover: rgb(71, 82, 196);
+  --button-filled-brand-text: rgb(255, 255, 255);
+
+  --button-secondary-background: rgb(78, 80, 88);
+  --button-secondary-background-hover: rgb(109, 111, 120);
+  --button-secondary-text: rgb(255, 255, 255);
 
   --wb-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -241,6 +245,11 @@ html.theme-under-the-sea {
   --footer-background: rgb(16, 20, 19);
 }
 
+html.theme-under-the-sea .wb-msg-t-jwFjxg {
+  --wb-msg-colors-background: rgb(29, 39, 32);
+  --wb-msg-colors-backgroundSecondary: rgba(52, 62, 57, 0.3);
+}
+
 * {
   transition: all 170ms ease;
 }
@@ -303,8 +312,8 @@ header .theme-switch .theme-preview-swatch {
 }
 
 button {
-  background-color: var(--button-background);
-  color: var(--button-font-color);
+  background-color: var(--button-filled-brand-background);
+  color: var(--button-filled-brand-text);
   border: none;
   border-radius: 6px;
   padding: 0.5em;
@@ -314,6 +323,19 @@ button {
   font-size: 0.9em;
   padding: 0.5em 0.75em;
   transition: background-color 170ms ease, color 170ms ease;
+}
+
+button:hover {
+  background-color: var(--button-filled-brand-background-hover);
+}
+
+button.secondary {
+  background-color: var(--button-secondary-background);
+  color: var(--button-secondary-text);
+}
+
+button.secondary:hover {
+  background-color: var(--button-secondary-background-hover);
 }
 
 header .theme-list {
@@ -347,10 +369,6 @@ header .theme-list .theme-item {
 
 header .theme-list button {
   flex-grow: 1;
-}
-
-button:hover {
-  background-color: var(--button-background-hover);
 }
 
 main {
@@ -459,7 +477,7 @@ a:visited {
 }
 
 .wb-msg-c-md-text-wb {
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .wb-msg-c-message-group-wb {
@@ -489,4 +507,12 @@ a:visited {
   font-weight: 600 !important;
   height: 0.9375rem !important;
   font-size: 0.8rem !important;
+}
+
+.wb-msg-c-content-container-wb-hBQKoF-isReplyContent-true {
+  max-width: 100%;
+}
+
+.wb-msg-c-embed-author-name-wb {
+  white-space: break-spaces;
 }
