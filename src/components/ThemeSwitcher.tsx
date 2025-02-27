@@ -44,18 +44,18 @@ export function ThemeSwitcher() {
   }, [])
 
   return (
-    <div className="theme-switch">
-      <label htmlFor="theme-switch-button">
+    <div className='theme-switch'>
+      {/* <label htmlFor='theme-switch-button'>
         <div
-          className="theme-preview-swatch"
+          className='theme-preview-swatch'
           style={{
             background:
               currentTheme?.previewOverride ??
               `var(--${currentTheme?.class}-preview)`,
           }}
         ></div>
-      </label>
-      <button id="theme-switch-button" onClick={toggleThemeList}>
+      </label> */}
+      <button id='theme-switch-button' className='secondary' onClick={toggleThemeList}>
         Switch Theme
       </button>
       <div className={`theme-list ${showThemes ? 'show' : ''}`}>
@@ -74,9 +74,9 @@ interface ThemeItemProps {
 
 function ThemeItem({ theme, onClick }: ThemeItemProps) {
   return (
-    <div className="theme-item">
+    <div className='theme-item'>
       <div
-        className="theme-preview-swatch"
+        className='theme-preview-swatch'
         style={{
           background: theme.previewOverride ?? `var(--${theme.class}-preview)`,
         }}
