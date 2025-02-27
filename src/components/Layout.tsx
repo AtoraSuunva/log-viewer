@@ -27,11 +27,11 @@ export default function Layout() {
         </ErrorBoundary>
       </main>
       <footer>
-        By <a href="https://atora.dev">atora.dev</a> -{' '}
+        By <a href="https://atora.dev">atora.dev</a> •{' '}
         <a href="https://github.com/widgetbot-io/message-renderer">
           Message Renderer
         </a>{' '}
-        - Source: <a href="https://github.com/AtoraSuunva/log-viewer">GitHub</a>
+        • Source: <a href="https://github.com/AtoraSuunva/log-viewer">GitHub</a>
       </footer>
     </>
   )
