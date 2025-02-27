@@ -510,7 +510,7 @@ a:visited {
 }
 
 .wb-msg-c-content-container-wb-hBQKoF-isReplyContent-true {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 .wb-msg-c-embed-author-name-wb {
