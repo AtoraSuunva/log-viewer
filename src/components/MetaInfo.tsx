@@ -1,6 +1,6 @@
-import { ReactComponent as SvgIconStageChannel } from '../assets/icon-stage-channel.svg'
-import { ReactComponent as SvgIconTextChannel } from '../assets/icon-text-channel.svg'
-import { ReactComponent as SvgIconVoiceChannel } from '../assets/icon-voice-channel.svg'
+import SvgIconStageChannel from '../assets/icon-stage-channel.svg?react'
+import SvgIconTextChannel from '../assets/icon-text-channel.svg?react'
+import SvgIconVoiceChannel from '../assets/icon-voice-channel.svg?react'
 
 import { ChannelType } from 'discord-api-types/v10'
 import { useEffect } from 'react'

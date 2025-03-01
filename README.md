@@ -8,6 +8,6 @@ This is designed to run on CloudFlare workers. Since Discord blocks CF from thei
 
 ```ini
 BOT_TOKEN= # Discord Bot Token
-ATTACHMENT_PROXY=https://example.com/attachments/ # :channelId/:attachmentId/:fileName
-ATTACHMENT_TOKEN= # For the proxy used above, sent as `Authorization: Bearer {ATTACHMENT_TOKEN}`
+ATTACHMENTS_PROXY=https://example.com/attachments/ # :channelId/:attachmentId/:fileName
+ATTACHMENTS_TOKEN= # For the proxy used above, sent as `Authorization: Bearer {ATTACHMENT_TOKEN}`
 ```
