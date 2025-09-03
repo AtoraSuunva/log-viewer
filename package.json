@@ -2,13 +2,16 @@
   "name": "log-viewer",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite dev",
+    "build:worker": "wrangler pages functions build --outdir=./dist/worker/",
+    "build:client": "vite build",
+    "build": "pnpm run build:worker && pnpm run build:client",
     "lint": "biome check && tsc --noEmit",
     "lint:fix": "biome check --write && tsc --noEmit",
-    "deploy": "pnpm run build && wrangler pages deploy ./dist",
-    "preview": "pnpm run build && wrangler pages dev ./dist"
+    "preview": "pnpm run build && vite preview",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@widgetbot/message-renderer": "^2.3.2",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
+    "@cloudflare/vite-plugin": "^1.12.2",
     "@cloudflare/workers-types": "^4.20250903.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",

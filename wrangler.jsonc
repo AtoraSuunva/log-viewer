@@ -1,0 +1,12 @@
+{
+  // Migrated from wrangler.toml (Pages -> Workers)
+  "name": "log-viewer",
+  // Use a recent compatibility date for Workers runtime
+  "compatibility_date": "2025-09-03",
+  // The compiled worker entry produced by `wrangler pages functions build`
+  "main": "./dist/worker/index.js",
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS"
+  }
+}

@@ -1,0 +1,4 @@
+# Prevent worker build artifacts from being uploaded as static assets
+_worker.js
+worker/
+dist/worker/

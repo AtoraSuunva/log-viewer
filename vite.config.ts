@@ -1,6 +1,10 @@
 import svgr from 'vite-plugin-svgr'
 import { defineConfig } from 'vite'
+import { cloudflare } from '@cloudflare/vite-plugin'
 
 export default defineConfig({
-  plugins: [svgr()]
+  plugins: [
+    cloudflare(),
+    svgr(),
+  ]
 })
