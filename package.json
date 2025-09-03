@@ -12,22 +12,22 @@
   },
   "dependencies": {
     "@widgetbot/message-renderer": "^2.3.2",
-    "discord-api-types": "^0.37.119",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-error-boundary": "^4.1.2",
-    "react-router": "^7.2.0",
-    "swr": "^2.3.2"
+    "discord-api-types": "^0.38.22",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-error-boundary": "^6.0.0",
+    "react-router": "^7.8.2",
+    "swr": "^2.3.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@cloudflare/workers-types": "^4.20250224.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "typescript": "^5.7.3",
-    "vite": "^6.2.0",
-    "vite-plugin-svgr": "^4.3.0",
-    "wrangler": "^3.111.0"
+    "@biomejs/biome": "^2.2.2",
+    "@cloudflare/workers-types": "^4.20250903.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vite-plugin-svgr": "^4.5.0",
+    "wrangler": "^4.33.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

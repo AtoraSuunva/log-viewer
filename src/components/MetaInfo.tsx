@@ -3,7 +3,6 @@ import SvgIconTextChannel from '../assets/icon-text-channel.svg?react'
 import SvgIconVoiceChannel from '../assets/icon-voice-channel.svg?react'
 
 import { ChannelType } from 'discord-api-types/v10'
-import { useEffect } from 'react'
 import { AttachmentBody, MinimalChannel } from '../types/AttachmentBody'
 
 interface MetaInfoProps {
@@ -13,12 +12,9 @@ interface MetaInfoProps {
 export function MetaInfo({ context }: MetaInfoProps) {
   const { guild, channel } = context.data
 
-  useEffect(() => {
-    if (channel?.name && channel.id !== '•••') document.title = `Log: #${channel.name}`
-  }, [channel])
-
   return (
     <div className="meta-info">
+      {channel?.name && channel.id !== '•••' && <title>Log: #{channel.name}</title>}
       <div className="meta-info__guild">
         <h2 className="meta-info__title">Guild</h2>
         <div className="meta-info__content">

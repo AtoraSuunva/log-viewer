@@ -35,8 +35,7 @@ const fetcher: Fetcher<AttachmentBody, string> = async (url) => {
   return res.json()
 }
 
-const DEV_SUFFIX =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : ''
+const DEV_SUFFIX = import.meta.env.IS_LOCAL ? 'http://localhost:8080' : ''
 
 export function useAttachment(
   channelId: string,

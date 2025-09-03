@@ -47,7 +47,7 @@ const BASE_MESSAGE: ChatMessage = {
   embeds: [],
   pinned: false,
   type: MessageType.Default,
-  flags: MessageFlags.Ephemeral,
+  flags: MessageFlags.Ephemeral as number,
 }
 
 const LOADING_MESSAGE: ChatMessage = {
@@ -111,7 +111,7 @@ export default function LogView() {
 
     const errorMessage: ChatMessage = {
       ...ERROR_MESSAGE,
-      content: `# ${error.status}\n\`\`\`\n${error.message}\n\`\`\`${appended}`,
+      content: `# HTTP ${error.status}\n\`\`\`\n${error.message}\n\`\`\`${appended}`,
     }
 
     return (
@@ -146,7 +146,7 @@ export default function LogView() {
           <MessageGroup
             key={currentMessages[0]?.id}
             thread={false}
-            messages={currentMessages}
+            messages={currentMessages as ChatMessage[]}
           />,
         )
       }
@@ -162,7 +162,7 @@ export default function LogView() {
       <MessageGroup
         key={currentMessages[0]?.id}
         thread={false}
-        messages={currentMessages}
+        messages={currentMessages as ChatMessage[]}
       />,
     )
   }

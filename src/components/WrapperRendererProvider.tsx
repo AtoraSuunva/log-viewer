@@ -261,11 +261,14 @@ export default function WrapperRendererProvider({
           actionDescription: 'Copy Message ID',
         },
       ]}
-      resolveRole={(id) => resolveRole(context, id)}
-      resolveChannel={(id) => resolveChannel(context, id)}
-      resolveMember={(id) => resolveMember(context, id)}
-      resolveGuild={(id) => resolveGuild(context, id)}
-      resolveUser={(id) => resolveUser(context, id)}
+  resolveRole={(id) => resolveRole(context, id)}
+  // @ts-expect-error message renderer is using older discord-api-types
+  resolveChannel={(id) => resolveChannel(context, id)}
+  // @ts-expect-error
+  resolveMember={(id) => resolveMember(context, id)}
+  // @ts-expect-error
+  resolveGuild={(id) => resolveGuild(context, id)}
+  resolveUser={(id) => resolveUser(context, id)}
       currentUser={() => null}
       seeThreadOnClick={(_messageId, thread) => {
         copyId(thread.id, 'Thread ID')
