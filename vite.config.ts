@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [
     cloudflare(),
     svgr(),
-  ]
+  ],
+  build: {
+    sourcemap: true,
+  }
 })
