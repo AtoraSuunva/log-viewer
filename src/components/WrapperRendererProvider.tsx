@@ -99,12 +99,24 @@ function resolveRole(context: AttachmentBody, id: Snowflake): APIRole | null {
         id: role.id,
         name: role.name,
         color: role.color,
+        // if we ever change the attachment version to v2, we can remove this fallback and just use role.colors
+        colors:
+          'colors' in role
+            ? role.colors
+            : {
+                primary_color: role.color,
+                secondary_color: null,
+                tertiary_color: null,
+              },
         flags: 0 as RoleFlags,
         hoist: false,
         managed: false,
         mentionable: false,
         permissions: '0',
-        position: 0,
+        position: role.position,
+        unicode_emoji: role.unicode_emoji ?? null,
+        icon: role.icon ?? null,
+        ...('tags' in role ? { tags: role.tags } : {}),
       }
 }
 
@@ -254,11 +266,8 @@ export default function WrapperRendererProvider({
         },
       ]}
       resolveRole={(id) => resolveRole(context, id)}
-      // @ts-expect-error message renderer is using older discord-api-types
       resolveChannel={(id) => resolveChannel(context, id)}
-      // @ts-expect-error
       resolveMember={(id) => resolveMember(context, id)}
-      // @ts-expect-error
       resolveGuild={(id) => resolveGuild(context, id)}
       resolveUser={(id) => resolveUser(context, id)}
       currentUser={() => null}

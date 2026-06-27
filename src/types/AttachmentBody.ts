@@ -18,7 +18,10 @@ export type MinimalChannel = Pick<APIChannel, 'id' | 'name'> & {
 export type MinimalRole = Pick<
   APIRole,
   'id' | 'name' | 'color' | 'icon' | 'unicode_emoji' | 'position'
->
+  // if we ever change the attachment version to v2, we can remove this partial and just add role.colors
+> &
+  Partial<Pick<APIRole, 'colors' | 'tags'>>
+
 export type MinimalUser = Pick<
   APIUser,
   'id' | 'avatar' | 'discriminator' | 'global_name' | 'username'

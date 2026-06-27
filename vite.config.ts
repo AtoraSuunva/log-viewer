@@ -3,6 +3,7 @@ import svgr from 'vite-plugin-svgr'
 import { defineConfig, lazyPlugins } from 'vite-plus'
 
 export default defineConfig(({ mode }) => ({
+  envPrefix: ['VITE_', 'WORKERS_CI_'],
   staged: {
     '*': 'vp check --fix',
   },

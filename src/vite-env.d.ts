@@ -6,6 +6,8 @@ interface ViteTypeOptions {
 
 interface ImportMetaEnv {
   readonly IS_LOCAL: string
+  readonly WORKERS_CI_BRANCH?: string
+  readonly WORKERS_CI_COMMIT_SHA?: string
 }
 
 interface ImportMeta {
