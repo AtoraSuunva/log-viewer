@@ -12,24 +12,24 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@widgetbot/message-renderer": "^2.3.2",
-    "discord-api-types": "^0.38.22",
+    "@widgetbot/message-renderer": "^3.0.0",
+    "discord-api-types": "^0.38.49",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-error-boundary": "^6.0.0",
+    "react-error-boundary": "^6.1.2",
     "react-router": "^7.8.2",
-    "swr": "^2.3.6"
+    "swr": "^2.4.2"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.12.2",
-    "@cloudflare/workers-types": "^4.20250903.0",
-    "@types/react": "^19.1.12",
-    "@types/react-dom": "^19.1.9",
-    "typescript": "^5.9.2",
+    "@cloudflare/vite-plugin": "^1.42.3",
+    "@cloudflare/workers-types": "^4.20260626.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vite-plugin-svgr": "^4.5.0",
+    "vite-plugin-svgr": "^5.2.0",
     "vite-plus": "latest",
-    "wrangler": "^4.33.2"
+    "wrangler": "^4.105.0"
   },
   "devEngines": {
     "packageManager": {
