@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router'
+
 import Home from './Home'
 import Layout from './Layout'
 import LogView from './LogView'
@@ -9,10 +10,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route
-          path="/:channelId/:attachmentId/:fileName"
-          element={<LogView />}
-        />
+        <Route path="/:channelId/:attachmentId/:fileName" element={<LogView />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

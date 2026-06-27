@@ -17,9 +17,12 @@
   --button-secondary-background-hover: rgb(109, 111, 120);
   --button-secondary-text: rgb(255, 255, 255);
 
-  --wb-fonts-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-main: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-code: 'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+  --wb-fonts-main: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-main: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-code:
+    'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
+    'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 
   --theme-dark-preview: rgb(54, 57, 63);
   --theme-light-preview: rgb(255, 255, 255);
@@ -28,85 +31,85 @@
 
 /* #region fonts */
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: normal;
   font-weight: 400;
-  src: url("/src/assets/fonts/gg-sans-normal-400.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-normal-400.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: normal;
   font-weight: 500;
-  src: url("/src/assets/fonts/gg-sans-normal-500.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-normal-500.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: normal;
   font-weight: 600;
-  src: url("/src/assets/fonts/gg-sans-normal-600.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-normal-600.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: normal;
   font-weight: 700;
-  src: url("/src/assets/fonts/gg-sans-normal-700.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-normal-700.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: normal;
   font-weight: 800;
-  src: url("/src/assets/fonts/gg-sans-normal-800.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-normal-800.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: italic;
   font-weight: 400;
-  src: url("/src/assets/fonts/gg-sans-italic-400.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-italic-400.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: italic;
   font-weight: 500;
-  src: url("/src/assets/fonts/gg-sans-italic-500.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-italic-500.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: italic;
   font-weight: 600;
-  src: url("/src/assets/fonts/gg-sans-italic-600.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-italic-600.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: italic;
   font-weight: 700;
-  src: url("/src/assets/fonts/gg-sans-italic-700.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-italic-700.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg sans";
+  font-family: 'gg sans';
   font-style: italic;
   font-weight: 800;
-  src: url("/src/assets/fonts/gg-sans-italic-800.woff2") format("woff2");
+  src: url('/src/assets/fonts/gg-sans-italic-800.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "gg mono";
-  src: url("/src/assets/fonts/gg-mono.woff2") format("woff2");
+  font-family: 'gg mono';
+  src: url('/src/assets/fonts/gg-mono.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Source Code Pro";
-  src: url("/src/assets/fonts/source-code-pro.woff2") format("woff2");
+  font-family: 'Source Code Pro';
+  src: url('/src/assets/fonts/source-code-pro.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
 }
@@ -138,7 +141,7 @@
     --wb-msg-colors-primaryOpacity50: rgba(49, 51, 56, 0.5);
     --wb-msg-colors-primaryOpacity60: rgba(49, 51, 56, 0.6);
     --wb-msg-colors-primaryOpacity80: rgba(49, 51, 56, 0.8);
-    --wb-msg-colors-primaryOpacity100: rgba(49, 51, 56, 1.0);
+    --wb-msg-colors-primaryOpacity100: rgba(49, 51, 56, 1);
   }
 
   html.theme-sync .wb-msg-c-md-inline-code-wb {
@@ -154,7 +157,7 @@
   }
 
   html.theme-sync .wb-msg-c-chat-tag-wb {
-    --wb-msg-colors-primaryOpacity100: rgba(255, 255, 255, 1.0);
+    --wb-msg-colors-primaryOpacity100: rgba(255, 255, 255, 1);
   }
 
   html.theme-sync .wb-msg-c-mention-wb {
@@ -199,7 +202,7 @@ html.theme-light .wb-msg-t-cviZnF {
   --wb-msg-colors-primaryOpacity50: rgba(49, 51, 56, 0.5);
   --wb-msg-colors-primaryOpacity60: rgba(49, 51, 56, 0.6);
   --wb-msg-colors-primaryOpacity80: rgba(49, 51, 56, 0.8);
-  --wb-msg-colors-primaryOpacity100: rgba(49, 51, 56, 1.0);
+  --wb-msg-colors-primaryOpacity100: rgba(49, 51, 56, 1);
 }
 
 html.theme-light .wb-msg-c-md-inline-code-wb {
@@ -215,7 +218,7 @@ html.theme-light .wb-msg-c-md-code-block-wb {
 }
 
 html.theme-light .wb-msg-c-chat-tag-wb {
-  --wb-msg-colors-primaryOpacity100: rgba(255, 255, 255, 1.0);
+  --wb-msg-colors-primaryOpacity100: rgba(255, 255, 255, 1);
 }
 
 html.theme-light .wb-msg-c-mention-wb {
@@ -305,7 +308,11 @@ header .theme-switch .theme-preview-swatch {
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  background: linear-gradient(-45deg, var(--theme-dark-preview) 0% 50%, var(--theme-light-preview) 50% 100%);
+  background: linear-gradient(
+    -45deg,
+    var(--theme-dark-preview) 0% 50%,
+    var(--theme-light-preview) 50% 100%
+  );
   border: 1px solid var(--font-color);
   margin-right: 0.5em;
   cursor: pointer;
@@ -322,7 +329,9 @@ button {
   font-weight: 500;
   font-size: 0.9em;
   padding: 0.5em 0.75em;
-  transition: background-color 170ms ease, color 170ms ease;
+  transition:
+    background-color 170ms ease,
+    color 170ms ease;
 }
 
 button:hover {
@@ -494,7 +503,7 @@ a:visited {
   vertical-align: bottom;
 }
 
-.wb-msg-c-message-accessories-wb>* {
+.wb-msg-c-message-accessories-wb > * {
   max-width: 100%;
   height: auto;
 }

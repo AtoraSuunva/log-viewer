@@ -16,8 +16,7 @@ const headers: HeadersInit = {
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const [channelId, attachmentId, fileName] = context.params
-    .catchall as string[]
+  const [channelId, attachmentId, fileName] = context.params.catchall as string[]
 
   if (!channelId || !attachmentId || !fileName) {
     return new Response(MISSING_PATH_PARAM, {
@@ -40,7 +39,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const error = err instanceof Error ? err.message : String(err)
     const status = err instanceof HttpError ? err.status : 500
 
-    console.log({ message: `Failed to fetch messages for ${[channelId, attachmentId, fileName]}`, error, status })
+    console.log({
+      message: `Failed to fetch messages for ${channelId}/${attachmentId}/${fileName}`,
+      error,
+      status,
+    })
 
     return new Response(JSON.stringify({ error }), {
       status,
@@ -55,10 +58,7 @@ interface AttachmentParams {
   fileName: string
 }
 
-function toAttachmentUrl(
-  proxy: string,
-  { channelId, attachmentId, fileName }: AttachmentParams,
-) {
+function toAttachmentUrl(proxy: string, { channelId, attachmentId, fileName }: AttachmentParams) {
   return `${proxy}${channelId}/${attachmentId}/${fileName}`
 }
 

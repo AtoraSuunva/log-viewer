@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="theme-sync">
   <head>
     <meta charset="utf-8" />
     <!-- We are very likely to connect to these for emojis (jsdelivr) and avatars/emotes (discordapp) -->
     <!-- Avatars are basically guaranteed so we preconnect, emojis aren't so we only prefetch -->
-    <link rel="prefetch-dns" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdn.discordapp.com">
+    <link rel="prefetch-dns" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdn.discordapp.com" />
     <!-- It would be nice to also preload fonts but the URLs have hashes in them -->
 
     <meta name="description" content="Viewer for archived Discord messages" />
@@ -13,18 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#36393f" />
     <link rel="icon" href="/public/favicon.ico" />
-    <link rel="apple-touch-icon"
-          sizes="180x180"
-          href="/public/apple-touch-icon.png">
-    <link rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/public/favicon-32x32.png">
-    <link rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/public/favicon-16x16.png">
-    <link rel="manifest" href="/public/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" />
+    <link rel="manifest" href="/public/site.webmanifest" />
     <script type="module" src="/src/index.tsx"></script>
     <title>Log Viewer</title>
   </head>

@@ -4,14 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
     "build:worker": "wrangler pages functions build --outdir=./dist/worker/",
-    "build:client": "vite build",
-    "build": "pnpm run build:worker && pnpm run build:client",
-    "lint": "biome check && tsc --noEmit",
-    "lint:fix": "biome check --write && tsc --noEmit",
-    "preview": "pnpm run build && vite preview",
-    "deploy": "pnpm run build && wrangler deploy"
+    "build:client": "vp build",
+    "build": "vp run build:worker && vp build",
+    "preview": "vp run build && vp preview",
+    "deploy": "vp run build && wrangler deploy",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@widgetbot/message-renderer": "^2.3.2",
@@ -23,25 +21,21 @@
     "swr": "^2.3.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.2",
     "@cloudflare/vite-plugin": "^1.12.2",
     "@cloudflare/workers-types": "^4.20250903.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plugin-svgr": "^4.5.0",
+    "vite-plus": "latest",
     "wrangler": "^4.33.2"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "core-js",
-      "core-js-pure",
-      "es5-ext",
-      "esbuild",
-      "sharp",
-      "workerd"
-    ]
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.9.0",
+      "onFail": "download"
+    }
   }
 }

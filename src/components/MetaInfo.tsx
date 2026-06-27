@@ -1,10 +1,10 @@
+import { ChannelType } from 'discord-api-types/v10'
+import { useEffect } from 'react'
+
 import SvgIconStageChannel from '../assets/icon-stage-channel.svg?react'
 import SvgIconTextChannel from '../assets/icon-text-channel.svg?react'
 import SvgIconVoiceChannel from '../assets/icon-voice-channel.svg?react'
-
-import { ChannelType } from 'discord-api-types/v10'
 import { AttachmentBody, MinimalChannel } from '../types/AttachmentBody'
-import { useEffect } from 'react'
 
 interface MetaInfoProps {
   context: AttachmentBody
@@ -42,11 +42,10 @@ export function MetaInfo({ context }: MetaInfoProps) {
       <div className="meta-info__channel">
         <h2 className="meta-info__title">Channel</h2>
         <div className="meta-info__content">
-          <div className="meta-info__icon">
-            {SvgIconFromChannelType(channel)}
-          </div>
+          <div className="meta-info__icon">{SvgIconFromChannelType(channel)}</div>
           <div className="meta-info__name">
-            {channel?.name ?? 'Unknown Channel'} <span className="meta-info__id">({channel?.id ?? '???'})</span>
+            {channel?.name ?? 'Unknown Channel'}{' '}
+            <span className="meta-info__id">({channel?.id ?? '???'})</span>
           </div>
         </div>
       </div>
@@ -54,9 +53,7 @@ export function MetaInfo({ context }: MetaInfoProps) {
   )
 }
 
-function SvgIconFromChannelType(
-  channel: MinimalChannel | undefined,
-): React.ReactNode {
+function SvgIconFromChannelType(channel: MinimalChannel | undefined): React.ReactNode {
   switch (channel?.type) {
     case ChannelType.GuildText:
       return <SvgIconTextChannel />

@@ -1,5 +1,6 @@
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { Outlet } from 'react-router'
+
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 function fallbackRender({ error }: FallbackProps): React.ReactNode {
@@ -28,10 +29,8 @@ export default function Layout() {
       </main>
       <footer>
         By <a href="https://atora.dev">atora.dev</a> •{' '}
-        <a href="https://github.com/widgetbot-io/message-renderer">
-          Message Renderer
-        </a>{' '}
-        • Source: <a href="https://github.com/AtoraSuunva/log-viewer">GitHub</a>
+        <a href="https://github.com/widgetbot-io/message-renderer">Message Renderer</a> • Source:{' '}
+        <a href="https://github.com/AtoraSuunva/log-viewer">GitHub</a>
       </footer>
     </>
   )

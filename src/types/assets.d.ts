@@ -13,8 +13,13 @@ declare module '*.gif' {
   export default src
 }
 
+declare module '*.css' {
+  const src: string
+  export default src
+}
+
 declare const process: {
   env: {
-    NODE_ENV: 'development' | 'production' | string
+    NODE_ENV: string
   }
 }

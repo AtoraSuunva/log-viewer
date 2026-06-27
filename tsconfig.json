@@ -18,7 +18,8 @@
     "module": "ES2022",
     "moduleResolution": "Bundler",
 
-    /* Emit */
+    /* Emit *    "build:worker": "wrangler pages functions build --outdir=./dist/worker/",
+/
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -39,6 +40,7 @@
     /* Completeness */
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "inlineSources": true,
+    "sourceMap": true,
+    "inlineSources": true
   }
 }

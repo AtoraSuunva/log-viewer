@@ -1,3 +1,19 @@
+import { MessageRendererProvider } from '@widgetbot/message-renderer'
+import {
+  APIChannel,
+  APIGuild,
+  APIGuildMember,
+  APIRole,
+  APIUser,
+  GuildMemberFlags,
+  GuildSystemChannelFlags,
+  Locale,
+  RoleFlags,
+  Snowflake,
+} from 'discord-api-types/v10'
+
+import automodAvatarAnimated from '../assets/automod-avatar.gif'
+import automodAvatarStill from '../assets/automod-avatar.png'
 import SvgAcrobat from '../assets/file-acrobat.svg'
 import SvgAe from '../assets/file-ae.svg'
 import SvgAi from '../assets/file-ai.svg'
@@ -9,7 +25,6 @@ import SvgSketch from '../assets/file-sketch.svg'
 import SvgSpreadsheet from '../assets/file-spreadsheet.svg'
 import SvgFileUnknown from '../assets/file-unknown.svg'
 import SvgWebCode from '../assets/file-webcode.svg'
-
 import SvgIconAdd from '../assets/icon-add.svg'
 import SvgIconAttachment from '../assets/icon-attachment.svg'
 import SvgIconBoost from '../assets/icon-boost.svg'
@@ -33,23 +48,6 @@ import SvgIconThreadCreated from '../assets/icon-thread-created.svg'
 import SvgIconUnknownReply from '../assets/icon-unknown-reply.svg'
 import SvgIconVoiceChannel from '../assets/icon-voice-channel.svg'
 import SvgWarning from '../assets/icon-warning.svg'
-
-import automodAvatarAnimated from '../assets/automod-avatar.gif'
-import automodAvatarStill from '../assets/automod-avatar.png'
-
-import { MessageRendererProvider } from '@widgetbot/message-renderer'
-import {
-  APIChannel,
-  APIGuild,
-  APIGuildMember,
-  APIRole,
-  APIUser,
-  GuildMemberFlags,
-  GuildSystemChannelFlags,
-  Locale,
-  RoleFlags,
-  Snowflake,
-} from 'discord-api-types/v10'
 import SvgMiscDiscordImageFailure from '../assets/misc-discord-image-failure.svg'
 import { AttachmentBody } from '../types/AttachmentBody'
 
@@ -110,10 +108,7 @@ function resolveRole(context: AttachmentBody, id: Snowflake): APIRole | null {
       }
 }
 
-function resolveChannel(
-  context: AttachmentBody,
-  id: Snowflake,
-): APIChannel | null {
+function resolveChannel(context: AttachmentBody, id: Snowflake): APIChannel | null {
   const c = context.data.channel
   if (c?.id === id) {
     return {
@@ -138,10 +133,7 @@ function resolveChannel(
       } as unknown as APIChannel) // dumb hack but otherwise TS complains about `type` not matching
 }
 
-function resolveMember(
-  context: AttachmentBody,
-  { id }: APIUser,
-): APIGuildMember | null {
+function resolveMember(context: AttachmentBody, { id }: APIUser): APIGuildMember | null {
   const guildMember = context.data.members?.[id]
 
   return guildMember === undefined
@@ -229,7 +221,7 @@ function copyId(id: string, of = 'ID') {
   navigator.clipboard
     .writeText(id)
     .then(() => {
-      alert(`${of} copied!`)
+      return alert(`${of} copied!`)
     })
     .catch(() => {
       alert(`Failed to copy ${of}!`)
@@ -261,14 +253,14 @@ export default function WrapperRendererProvider({
           actionDescription: 'Copy Message ID',
         },
       ]}
-  resolveRole={(id) => resolveRole(context, id)}
-  // @ts-expect-error message renderer is using older discord-api-types
-  resolveChannel={(id) => resolveChannel(context, id)}
-  // @ts-expect-error
-  resolveMember={(id) => resolveMember(context, id)}
-  // @ts-expect-error
-  resolveGuild={(id) => resolveGuild(context, id)}
-  resolveUser={(id) => resolveUser(context, id)}
+      resolveRole={(id) => resolveRole(context, id)}
+      // @ts-expect-error message renderer is using older discord-api-types
+      resolveChannel={(id) => resolveChannel(context, id)}
+      // @ts-expect-error
+      resolveMember={(id) => resolveMember(context, id)}
+      // @ts-expect-error
+      resolveGuild={(id) => resolveGuild(context, id)}
+      resolveUser={(id) => resolveUser(context, id)}
       currentUser={() => null}
       seeThreadOnClick={(_messageId, thread) => {
         copyId(thread.id, 'Thread ID')

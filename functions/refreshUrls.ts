@@ -1,5 +1,4 @@
-const REFRESH_URLS =
-  'https://canary.discord.com/api/v10/attachments/refresh-urls'
+const REFRESH_URLS = 'https://canary.discord.com/api/v10/attachments/refresh-urls'
 
 interface RefreshUrlsPayload {
   attachment_urls: string[]

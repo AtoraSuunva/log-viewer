@@ -1,5 +1,6 @@
 import type { Fetcher, SWRResponse } from 'swr'
 import useSWRImmutable from 'swr/immutable'
+
 import type { AttachmentBody } from '../types/AttachmentBody'
 
 class FetchError extends Error {
@@ -59,10 +60,7 @@ export function useAttachment(
           return
         }
 
-        setTimeout(
-          () => void revalidate({ retryCount }),
-          3 ** retryCount * 1000,
-        )
+        setTimeout(() => void revalidate({ retryCount }), 3 ** retryCount * 1000)
       },
     },
   )

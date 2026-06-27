@@ -21,8 +21,7 @@ const themes: Theme[] = [
 export function ThemeSwitcher() {
   const [showThemes, setShowThemes] = useState(false)
   const [currentTheme, setCurrentTheme] = useState(
-    themes.find((theme) => theme.class === localStorage.getItem('theme')) ??
-      themes[0],
+    themes.find((theme) => theme.class === localStorage.getItem('theme')) ?? themes[0],
   )
 
   const toggleThemeList = () => {
@@ -44,7 +43,7 @@ export function ThemeSwitcher() {
   }, [])
 
   return (
-    <div className='theme-switch'>
+    <div className="theme-switch">
       {/* <label htmlFor='theme-switch-button'>
         <div
           className='theme-preview-swatch'
@@ -55,7 +54,7 @@ export function ThemeSwitcher() {
           }}
         ></div>
       </label> */}
-      <button id='theme-switch-button' className='secondary' onClick={toggleThemeList}>
+      <button id="theme-switch-button" className="secondary" onClick={toggleThemeList}>
         Switch Theme
       </button>
       <div className={`theme-list ${showThemes ? 'show' : ''}`}>
@@ -74,9 +73,9 @@ interface ThemeItemProps {
 
 function ThemeItem({ theme, onClick }: ThemeItemProps) {
   return (
-    <div className='theme-item'>
+    <div className="theme-item">
       <div
-        className='theme-preview-swatch'
+        className="theme-preview-swatch"
         style={{
           background: theme.previewOverride ?? `var(--${theme.class}-preview)`,
         }}
