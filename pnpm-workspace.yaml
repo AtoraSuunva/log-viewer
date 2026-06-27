@@ -2,15 +2,7 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
-
-onlyBuiltDependencies:
-  - core-js
-  - core-js-pure
-  - es5-ext
-  - esbuild
-  - sharp
-  - workerd
-  - es5-ext@0.10.64
+  es5-ext: true
 
 overrides:
   vite: npm:@voidzero-dev/vite-plus-core@latest
